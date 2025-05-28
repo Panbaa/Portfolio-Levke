@@ -1,18 +1,6 @@
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
-import { useState, FormEvent } from 'react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 
 function Kontakt() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
-  };
 
   return (
     <div className="container mx-auto py-12 px-4">
