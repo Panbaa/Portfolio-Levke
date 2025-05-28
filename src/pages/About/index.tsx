@@ -16,13 +16,13 @@ const About: React.FC = () => {
           <div className="relative">
             <div className="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden">
               <img
-                src="/images/profile.jpg"
+                src="profil.png"
                 alt="Levke Oelke"
                 className="object-cover w-full h-full"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-accent text-white p-4 rounded-lg">
-              <p className="font-medium">Über 15 Jahre Erfahrung</p>
+              <p className="font-medium">Master der Architektur</p>
             </div>
           </div>
           

@@ -8,21 +8,21 @@ function Home() {
       id: 1,
       title: "Moderner Wohnkomplex",
       description: "Eine nachhaltige Wohnanlage mit modernen Designelementen und umweltfreundlichen Materialien",
-      image: "/images/project1.jpg",
+      image: "PictureDummy 1.jpeg",
       year: 2024
     },
     {
       id: 2,
       title: "Städtisches Kulturzentrum",
       description: "Ein markantes Gebäude, das Tradition und modernes Design verbindet",
-      image: "/images/project2.jpg",
+      image: "PictureDummy 2.jpeg",
       year: 2023
     },
     {
       id: 3,
       title: "Grüner Büroturm",
       description: "Nachhaltige Geschäftsarchitektur mit biophilen Designelementen",
-      image: "/images/project3.jpg",
+      image: "PictureDummy 1.jpeg",
       year: 2025
     }
   ];

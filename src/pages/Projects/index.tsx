@@ -9,7 +9,7 @@ const Projects: React.FC = () => {
       id: "1",
       title: "Moderner Wohnkomplex",
       description: "Ein nachhaltiger Wohnkomplex mit modernen Designelementen und umweltfreundlichen Materialien.",
-      images: ["/images/project1-1.jpg", "/images/project1-2.jpg"],
+      images: ["PictureDummy 1.jpeg", "PictureDummy 2.jpeg"],
       year: 2024,
       location: "Hamburg, Deutschland",
       category: "Wohnbau"
@@ -18,7 +18,7 @@ const Projects: React.FC = () => {
       id: "2",
       title: "Urbaner Büroraum",
       description: "Ein zeitgenössisches Bürogebäude, das Zusammenarbeit und Wohlbefinden fördert.",
-      images: ["/images/project2-1.jpg", "/images/project2-2.jpg"],
+      images: ["PictureDummy 1.jpeg", "PictureDummy 2.jpeg"],
       year: 2023,
       location: "Berlin, Deutschland",
       category: "Gewerbebau"
@@ -27,10 +27,19 @@ const Projects: React.FC = () => {
       id: "3",
       title: "Kulturzentrum",
       description: "Ein lebendiger Gemeinschaftsraum, der lokale Kultur und künstlerischen Ausdruck zelebriert.",
-      images: ["/images/project3-1.jpg", "/images/project3-2.jpg"],
+      images: ["PictureDummy 1.jpeg", "PictureDummy 2.jpeg"],
       year: 2025,
       location: "München, Deutschland",
       category: "Kultur"
+    },
+    {
+      id: "4",
+      title: "Kulturzentrum",
+      description: "Ein lebendiger Gemeinschaftsraum, der lokale Kultur und künstlerischen Ausdruck zelebriert.",
+      images: ["PictureDummy 2.jpeg", "PictureDummy 1.jpeg"],
+      year: 2025,
+      location: "München, Deutschland",
+      category: "Wohnbau"
     }
   ];
 
@@ -52,19 +61,21 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
+      <div className="flex flex-wrap justify-center mb-12">
+        <div className='bg-primary bg-opacity-75 p-4 rounded-full flex gap-4 shadow-md mb-6'>
         {categories.map((category) => (
           <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 
-              ${activeCategory === category 
-                ? 'bg-accent text-white' 
-                : 'bg-neutral-100 text-primary-600 hover:bg-neutral-200'}`}
-          >
+          key={category}
+          onClick={() => setActiveCategory(category)}
+          className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 
+            ${activeCategory === category 
+              ? 'bg-accent text-white' 
+              : 'bg-neutral-100 text-primary-600 hover:bg-neutral-200'}`}
+              >
             {category}
           </button>
         ))}
+        </div>
       </div>
 
       {/* Projects Grid */}
