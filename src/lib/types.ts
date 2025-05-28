@@ -1,28 +1,20 @@
 import { ReactNode } from "react";
 
 export interface INavbarElement {
-    type: "single"
-    key: string;
-    name: string;
+    title: string;
+    path: string;
+    key?: string;
     icon?: ReactNode;
 }
 
 export type NavbarElement = INavbarElement;
 
-export interface ICar {
-    detailPageUrl: string;
-    image: string;
-    price: number;
-    make: string;
-    modelDescription: string;
+export interface IProject {
+    id: string;
     title: string;
-    firstRegistrationDate: string;
-    generalInspectionDate?: string;
-    newHuAu: string;
-    mileage: number;
-    power: number;
-    gearbox: string;
-    fuelType: string;
-  }
-  
-export type Car = ICar;
+    description: string;
+    images: string[];
+    year: number;
+    location: string;
+    category: string;
+}

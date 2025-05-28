@@ -1,35 +1,24 @@
-import { Phone, House, Sparkles, Car, HandCoins } from "lucide-react"
+import { Home, FolderOpen, User, Phone } from "lucide-react"
 import { NavbarElement } from "../../../lib/types"
 
-const NavbarElements: NavbarElement[] = [
-    {
-        type: "single",
-        key: "Home",
-        name: "Home",
-        icon: <House size={16} />
+const NavbarElements: NavbarElement[] = [    {
+        title: "Startseite",
+        path: "/home",
+        icon: <Home size={16} />
     },
     {
-        type: "single",
-        key: "Reinigung",
-        name: "Reinigung",
-        icon: <Sparkles size={16} />
+        title: "Projekte",
+        path: "/projekte",
+        icon: <FolderOpen size={16} />
     },
     {
-        type: "single",
-        key: "Verkauf",
-        name: "Verkauf",
-        icon: <Car size={16} />
+        title: "Über mich",
+        path: "/ueber-mich",
+        icon: <User size={16} />
     },
     {
-        type: "single",
-        key: "Ankauf",
-        name: "Ankauf",
-        icon: <HandCoins size={16} />
-    },
-    {
-        type: "single",
-        key: "Kontakt",
-        name: "Kontakt",
+        title: "Kontakt",
+        path: "/kontakt",
         icon: <Phone size={16} />
     },
 ]

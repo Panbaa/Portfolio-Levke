@@ -1,91 +1,144 @@
-import { Phone, Mail, MapPin, Clock } from 'lucide-react'
-import './Kontakt.css'
+import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react'
+import { useState, FormEvent } from 'react'
 
 function Kontakt() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log(formData);
+  };
+
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
-      {/* Header Section */}
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center p-3 mb-4 rounded-full bg-zinc-800">
-          <Phone size={30} className="text-blue-400" />
-        </div>
-        <h1 className='text-3xl font-bold text-white mb-4'>Kontakt</h1>
-        <p className='text-lg text-zinc-300 max-w-2xl mx-auto'>
-          Willkommen im Kontaktbereich. Sowohl für private als auch geschäftliche Anliegen
-          stehen wir Ihnen telefonisch oder per E-Mail zur Verfügung.
+    <div className="container mx-auto py-12 px-4">
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h1 className="text-4xl font-bold text-primary-900 mb-4">Get in Touch</h1>
+        <div className="w-20 h-1 bg-accent mx-auto mb-8"></div>
+        <p className="text-primary-700 max-w-2xl mx-auto">
+          Let's discuss your architectural vision. Whether you have a specific project in mind
+          or just want to learn more about our services, we're here to help.
         </p>
       </div>
+      
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <div className="bg-neutral-100 rounded-xl p-8">
+              <h2 className="text-2xl font-bold text-primary-900 mb-6">Contact Information</h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-accent/10 rounded-lg">
+                    <MapPin className="text-accent" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-primary-900 font-medium mb-1">Office Address</h3>
+                    <p className="text-primary-700">
+                      Eckernförder Straße 22<br />
+                      24103 Kiel<br />
+                      Germany
+                    </p>
+                  </div>
+                </div>
 
-      {/* Contact Info Grid */}
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
-        {/* Contact Methods */}
-        <div className="bg-zinc-800/50 rounded-2xl p-6 space-y-6 backdrop-blur-sm">
-          <h2 className="text-xl font-semibold text-white mb-4">Direkte Kontaktaufnahme</h2>
-          <ul className='space-y-4'>
-            <li className='flex items-center gap-4 group'>
-              <div className="p-3 rounded-lg bg-zinc-700/50 group-hover:bg-blue-500/20 transition-colors duration-300">
-                <Phone size={20} className="text-blue-400" />
-              </div>
-              <a
-                href="tel:+4917682050343"
-                className='text-zinc-300 hover:text-white transition-colors duration-300'
-              >
-                0176 82050343
-              </a>
-            </li>
-            <li className='flex items-center gap-4 group'>
-              <div className="p-3 rounded-lg bg-zinc-700/50 group-hover:bg-blue-500/20 transition-colors duration-300">
-                <Mail size={20} className="text-blue-400" />
-              </div>
-              <a
-                href="mailto:info@schuberts-automobile.de"
-                className='text-zinc-300 hover:text-white transition-colors duration-300'
-              >
-                info@schuberts-automobile.de
-              </a>
-            </li>
-          </ul>
-        </div>
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-accent/10 rounded-lg">
+                    <Phone className="text-accent" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-primary-900 font-medium mb-1">Phone</h3>
+                    <p className="text-primary-700">+49 (0) 40 1234567</p>
+                  </div>
+                </div>
 
-        {/* Address & Hours */}
-        <div className="bg-zinc-800/50 rounded-2xl p-6 space-y-6 backdrop-blur-sm">
-          <h2 className="text-xl font-semibold text-white mb-4">Vor Ort besuchen</h2>
-          <div className='space-y-4'>
-            <div className='flex items-start gap-4 group'>
-              <div className="p-3 rounded-lg bg-zinc-700/50 group-hover:bg-blue-500/20 transition-colors duration-300">
-                <MapPin size={20} className="text-blue-400" />
-              </div>
-              <p className='text-zinc-300'>Liebigstraße 7, 24145 Kiel</p>
-            </div>
-            <div className='flex items-start gap-4 group'>
-              <div className="p-3 rounded-lg bg-zinc-700/50 group-hover:bg-blue-500/20 transition-colors duration-300">
-                <Clock size={20} className="text-blue-400" />
-              </div>
-              <div className='grid grid-cols-2 gap-2 text-zinc-300 w-full'>
-                <span>Montag-Samstag:</span>
-                <span className='text-end'>09:00 - 18:00</span>
-                <span>Sonntag:</span>
-                <span className='text-end font-medium text-red-400'>Geschlossen</span>
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-accent/10 rounded-lg">
+                    <Mail className="text-accent" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-primary-900 font-medium mb-1">Email</h3>
+                    <p className="text-primary-700">info@levke-oelke.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-accent/10 rounded-lg">
+                    <Clock className="text-accent" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-primary-900 font-medium mb-1">Office Hours</h3>
+                    <p className="text-primary-700">
+                      Monday - Friday<br />
+                      9:00 AM - 6:00 PM
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Map Section */}
-      <div className="bg-zinc-800/50 rounded-2xl p-6 backdrop-blur-sm">
-        <h2 className="text-xl font-semibold text-white mb-4">Anfahrt</h2>
-        <div className="aspect-video w-full rounded-lg overflow-hidden">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2337.030567989248!2d10.136693!3d54.313595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b7561d5b903b05%3A0x60c0148f37332cc0!2sLiebigstra%C3%9Fe%207%2C%2024145%20Kiel!5e0!3m2!1sde!2sde!4v1625436000000!5m2!1sde!2sde"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Standort von Schubert Automobile"
-          ></iframe>
+          {/* Contact Form */}
+          <div className="bg-neutral-100 rounded-xl p-8">
+            <h2 className="text-2xl font-bold text-primary-900 mb-6">Send a Message</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-primary-900 font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:border-accent"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-primary-900 font-medium mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:border-accent"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-primary-900 font-medium mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:border-accent"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-accent text-white py-3 px-6 rounded-lg font-medium hover:bg-accent-600 transition-colors duration-300 flex items-center justify-center gap-2"
+              >
+                Send Message
+                <Send size={18} />
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

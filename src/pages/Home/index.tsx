@@ -1,87 +1,107 @@
-import './Home.css'
-import ScrollingGallery from '../../components/ScrollingGallery/ScrollingGallery'
+import { ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
+  const navigate = useNavigate();
+  const featuredProjects = [
+    {
+      id: 1,
+      title: "Moderner Wohnkomplex",
+      description: "Eine nachhaltige Wohnanlage mit modernen Designelementen und umweltfreundlichen Materialien",
+      image: "/images/project1.jpg",
+      year: 2024
+    },
+    {
+      id: 2,
+      title: "Städtisches Kulturzentrum",
+      description: "Ein markantes Gebäude, das Tradition und modernes Design verbindet",
+      image: "/images/project2.jpg",
+      year: 2023
+    },
+    {
+      id: 3,
+      title: "Grüner Büroturm",
+      description: "Nachhaltige Geschäftsarchitektur mit biophilen Designelementen",
+      image: "/images/project3.jpg",
+      year: 2025
+    }
+  ];
+
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <div className='w-full flex justify-center mb-16'>
-        <img 
-          src="./SA-Logo-Transparent.png" 
-          alt="Logo" 
-          className="w-80 h-auto filter drop-shadow-lg"
-        />
+      <div className="relative h-[85vh] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/80"></div>
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <div className="max-w-4xl mx-auto px-4">
+            <h1 className="text-5xl md:text-7xl font-bold text-neutral-50 mb-6 leading-tight">
+              Räume erschaffen,<br />die inspirieren
+            </h1>
+            <p className="text-xl md:text-2xl text-neutral-200 mb-12 max-w-2xl mx-auto">
+              Moderne architektonische Lösungen, die Form, Funktion und Nachhaltigkeit vereinen
+            </p>
+            <button
+              onClick={() => navigate('/projekte')}
+              className="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-accent-600 transition-colors duration-300"
+              aria-label="Zu den Projekten navigieren"
+            >
+              Projekte ansehen
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Welcome Section */}
-      <div className='space-y-16'>
-        <section className="text-center">
-          <h1 className='text-3xl font-bold text-white mb-6'>Willkommen bei Schubert Automobile</h1>
-          <p className='text-lg text-zinc-300 max-w-3xl mx-auto'>
-            Bei uns finden Sie nicht nur eine große Auswahl an hochwertigen Gebrauchtwagen, 
-            sondern auch einen erstklassigen Service, der keine Wünsche offen lässt. 
-            Ob Sie ein Auto kaufen, verkaufen oder Ihr Fahrzeug einer professionellen 
-            Reinigung unterziehen möchten – wir sind für Sie da!
-          </p>
-        </section>
+      {/* Featured Projects */}
+      <div className="container mx-auto py-20 px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-primary-900 mb-4">
+            Ausgewählte Projekte
+          </h2>
+          <div className="w-20 h-1 bg-accent mx-auto"></div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredProjects.map((project) => (
+            <div key={project.id} className="group cursor-pointer">
+              <div className="relative overflow-hidden rounded-xl shadow-lg">
+                <div className="aspect-w-4 aspect-h-3">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <p className="text-neutral-200 text-sm mb-2">{project.year}</p>
+                    <h3 className="text-xl font-semibold text-neutral-50 mb-2">{project.title}</h3>
+                    <p className="text-neutral-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                      {project.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-        {/* Services Sections */}
-        <section className="bg-zinc-800/50 rounded-2xl p-8 backdrop-blur-sm">
-          <h2 className='text-2xl font-bold text-white mb-6'>Professionelle Reinigung</h2>
-          <p className='text-zinc-300 mb-6'>
-            Unser erfahrenes Reinigungspersonal berät Sie gern in Ihrem Anliegen 
-            und findet mit Ihnen zusammen die beste Lösung.
-          </p>
-          <div className="mb-6">
-            <ScrollingGallery 
-              images={[
-                "./Autositz.png", 
-                "./RotesAuto.png", 
-                "./Kofferraum.png", 
-                "./WeisesAutoHinten.png", 
-                "./Autotuer.png", 
-                "./WeisesAutoVorne.png"
-              ]} 
-            />
+      {/* Philosophy Section */}
+      <div className="bg-neutral-100 py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-primary-900 mb-8">
+              Designphilosophie
+            </h2>
+            <div className="w-20 h-1 bg-accent mx-auto mb-8"></div>
+            <p className="text-primary-700 text-lg leading-relaxed">
+              Wir glauben an die Schaffung nachhaltiger, menschenzentrierter Architektur, 
+              die harmonisch mit ihrer Umgebung verschmilzt und dabei die Grenzen modernen 
+              Designs erweitert. Jedes Projekt wird mit besonderer Berücksichtigung 
+              ästhetischer Exzellenz und funktionaler Effizienz angegangen.
+            </p>
           </div>
-          <p className='text-zinc-300'>
-            Sehen Sie sich auf unserer{' '}
-            <a 
-              href="/#/Reinigung" 
-              className='text-blue-400 hover:text-blue-300 transition-colors duration-300'
-            >
-              Reinigungs
-            </a>
-            -Seite um, um mehr über unser umfangreiches Angebot an Reinigungen zu erfahren.
-          </p>
-        </section>
-
-        {/* Vehicle Trading Section */}
-        <section className="bg-zinc-800/50 rounded-2xl p-8 backdrop-blur-sm">
-          <h2 className='text-2xl font-bold text-white mb-6'>An- und Verkauf von Fahrzeugen</h2>
-          <p className='text-zinc-300 mb-6'>
-            Bei uns können Sie einfach und unkompliziert hochwertige Gebrauchtwagen 
-            kaufen oder Ihr eigenes Fahrzeug bewerten lassen und verkaufen – ganz ohne 
-            versteckte Kosten. Schnell, transparent und ohne großen Aufwand!
-          </p>
-          <p className='text-zinc-300'>
-            Schauen Sie sich unser aktuelles Fahrzeugangebot auf unserer{' '}
-            <a 
-              href="/#/Verkauf" 
-              className='text-blue-400 hover:text-blue-300 transition-colors duration-300'
-            >
-              Verkaufsseite
-            </a>
-            {' '}an oder erfahren Sie auf unserer{' '}
-            <a 
-              href="/#/Ankauf" 
-              className='text-blue-400 hover:text-blue-300 transition-colors duration-300'
-            >
-              Ankaufsseite
-            </a>
-            {' '}alles, was Sie wissen müssen, wenn Sie Ihr Auto an uns verkaufen möchten.
-          </p>
-        </section>
+        </div>
       </div>
     </div>
   )

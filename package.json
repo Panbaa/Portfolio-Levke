@@ -1,6 +1,6 @@
 {
-  "name": "reacttemplate",
-  "homepage": "https://panbaa.github.io/Schubert-Automobile/",
+  "name": "levke-portfolio",
+  "homepage": "https://your-portfolio-url.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,21 +11,15 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-  },
-  "dependencies": {
-    "clsx": "^2.1.1",
+  },  "dependencies": {
     "gh-pages": "^6.3.0",
     "lucide-react": "^0.469.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.1",
-    "tailwind-merge": "^2.6.0",
-    "xml2js": "^0.6.2"
-  },
-  "devDependencies": {
+    "react-router-dom": "^7.1.1"
+  },  "devDependencies": {
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@types/xml2js": "^0.4.14",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.13.0",
