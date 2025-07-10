@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, BookOpen, Building2, Users, Languages, Lightbulb, Wallpaper, Circle } from 'lucide-react';
+import { BookOpen, Languages, Lightbulb, Wallpaper, Circle } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
