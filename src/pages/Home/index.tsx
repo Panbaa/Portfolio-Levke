@@ -1,31 +1,11 @@
 import { ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import allProjects from '../../data/projects';
 
 function Home() {
   const navigate = useNavigate();
-  const featuredProjects = [
-    {
-      id: 1,
-      title: "Moderner Wohnkomplex",
-      description: "Eine nachhaltige Wohnanlage mit modernen Designelementen und umweltfreundlichen Materialien",
-      image: "PictureDummy 1.jpeg",
-      year: 2024
-    },
-    {
-      id: 2,
-      title: "Städtisches Kulturzentrum",
-      description: "Ein markantes Gebäude, das Tradition und modernes Design verbindet",
-      image: "PictureDummy 2.jpeg",
-      year: 2023
-    },
-    {
-      id: 3,
-      title: "Grüner Büroturm",
-      description: "Nachhaltige Geschäftsarchitektur mit biophilen Designelementen",
-      image: "PictureDummy 1.jpeg",
-      year: 2025
-    }
-  ];
+  // Only show the first 3 projects as featured
+  const featuredProjects = allProjects
 
   return (
     <div className="min-h-screen">
@@ -62,21 +42,22 @@ function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project) => (
-            <div key={project.id} className="group cursor-pointer">
+            <div key={project.id} className="group cursor-pointer" onClick={() => navigate(`/projekte/${project.id}`)}>
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <div className="aspect-w-4 aspect-h-3">
                   <img
-                    src={project.image}
+                    src={project.images[0]}
                     alt={project.title}
-                    className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover w-full h-full rounded-xl"
+                  style={{ aspectRatio: '4/3' }}
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 to-transparent lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <p className="text-neutral-200 text-sm mb-2">{project.year}</p>
                     <h3 className="text-xl font-semibold text-neutral-50 mb-2">{project.title}</h3>
-                    <p className="text-neutral-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                      {project.description}
+                    <p className="text-neutral-200 text-sm lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                      {project.aufgabe}
                     </p>
                   </div>
                 </div>
@@ -87,7 +68,7 @@ function Home() {
       </div>
 
       {/* Philosophy Section */}
-      <div className="bg-neutral-100 py-20">
+      {/* <div className="bg-neutral-100 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-primary-900 mb-8">
@@ -102,7 +83,7 @@ function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

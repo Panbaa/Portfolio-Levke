@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Projects from './pages/Projects';
+import ProjectDetail from './pages/Projects/[id]';
 import About from './pages/About';
 import Kontakt from './pages/Kontakt';
 import SeiteNichtGefunden from './pages/SeiteNichtGefunden';
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Home" element={<Home />} />
             <Route path="/projekte" element={<Projects />} />
+            <Route path="/projekte/:id" element={<ProjectDetail />} />
             <Route path="/ueber-mich" element={<About />} />
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="*" element={<SeiteNichtGefunden />} />

@@ -29,12 +29,10 @@ const About: React.FC = () => {
           <div>
             <h2 className="text-3xl font-bold text-primary-900 mb-6">Levke Oelke</h2>
             <p className="text-primary-700 text-lg mb-8 leading-relaxed">
-              Als engagierte Architektin spezialisiere ich mich auf
-              nachhaltige und innovative Architekturlösungen, die Form, Funktion und
-              Umweltverantwortung harmonisch verbinden.
+              Ich freue mich darauf im Beruf, sich mit den Herausforderungen unserer gebauten Umwelt auseinanderzusetzen. In meiner Freizeit bin ich gerne in Bewegung - beim Wandern, Klettern oder beim kreativen Arbeiten.
             </p>
 
-            <div className="grid grid-cols-2 gap-6">
+            {/* <div className="grid grid-cols-2 gap-6">
               <div className="p-4 rounded-lg bg-neutral-200">
                 <Building2 className="w-8 h-8 text-accent mb-3" />
                 <h3 className="font-semibold text-primary-900 mb-2">Nachhaltiges Design</h3>
@@ -45,7 +43,7 @@ const About: React.FC = () => {
                 <h3 className="font-semibold text-primary-900 mb-2">Kundenfokus</h3>
                 <p className="text-primary-600 text-sm">Kollaborativer Ansatz zur Erfüllung von Kundenwünschen</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -164,13 +162,13 @@ const About: React.FC = () => {
                 {/* MS-Office */}
                 <p className="text-xl font-semibold text-primary-900 mb-2">Adobe Photoshop</p>
                 <div className='flex items-center gap-2'>
-                  {[...Array(3)].map((_, i) => (
+                  {[...Array(4)].map((_, i) => (
                     <Circle
                       key={i}
                       className="w-6 h-6 text-accent fill-accent"
                     />
                   ))}
-                  {[...Array(2)].map((_, i) => (
+                  {[...Array(1)].map((_, i) => (
                     <Circle
                       key={i}
                       className="w-6 h-6 text-accent"
@@ -204,10 +202,11 @@ const About: React.FC = () => {
             <h2 className="text-2xl font-bold text-primary-900">Ausbildung</h2>
           </div>
           <div className="space-y-6">
-            <div className="p-6 rounded-lg bg-neutral-200">
+            <div className="p-6 rounded-lg bg-neutral-200 relative">
               <p className="text-accent font-bold">2025</p>
               <h3 className="text-xl font-semibold text-primary-900 mb-2">Master of Arts ~ Architektur</h3>
               <p className="text-primary-700">Technische Hochschule Lübeck</p>
+              <p className="font-medium absolute top-7 -translate-y-1/2 right-2 sm:top-1/2 sm:right-10 lg:right-5 bg-accent text-white p-2 sm:p-4 rounded-full">1,3</p>
             </div>
             <div className="p-6 rounded-lg bg-neutral-200 relative">
               <p className="text-accent font-bold">2023</p>
@@ -226,7 +225,7 @@ const About: React.FC = () => {
       </div>
 
       {/* Philosophy Section */}
-      <div className="max-w-3xl mx-auto text-center">
+      {/* <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-2xl font-bold text-primary-900 mb-6">Designphilosophie</h2>
         <div className="w-16 h-1 bg-accent mx-auto mb-8"></div>
         <p className="text-primary-700 text-lg leading-relaxed">
@@ -237,7 +236,7 @@ const About: React.FC = () => {
           nicht nur ästhetisch ansprechend sein sollte, sondern auch zum Wohlbefinden
           ihrer Nutzer und der Umwelt beitragen muss.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };

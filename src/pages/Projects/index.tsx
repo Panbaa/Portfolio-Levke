@@ -1,52 +1,15 @@
 import React, { useState } from 'react';
-import { IProject } from '../../lib/types';
+import { useNavigate } from 'react-router-dom';
+import allProjects from '../../data/projects';
 
 const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Alle');
-  
-  const projects: IProject[] = [
-    {
-      id: "1",
-      title: "Moderner Wohnkomplex",
-      description: "Ein nachhaltiger Wohnkomplex mit modernen Designelementen und umweltfreundlichen Materialien.",
-      images: ["PictureDummy 1.jpeg", "PictureDummy 2.jpeg"],
-      year: 2024,
-      location: "Hamburg, Deutschland",
-      category: "Wohnbau"
-    },
-    {
-      id: "2",
-      title: "Urbaner Büroraum",
-      description: "Ein zeitgenössisches Bürogebäude, das Zusammenarbeit und Wohlbefinden fördert.",
-      images: ["PictureDummy 1.jpeg", "PictureDummy 2.jpeg"],
-      year: 2023,
-      location: "Berlin, Deutschland",
-      category: "Gewerbebau"
-    },
-    {
-      id: "3",
-      title: "Kulturzentrum",
-      description: "Ein lebendiger Gemeinschaftsraum, der lokale Kultur und künstlerischen Ausdruck zelebriert.",
-      images: ["PictureDummy 1.jpeg", "PictureDummy 2.jpeg"],
-      year: 2025,
-      location: "München, Deutschland",
-      category: "Kultur"
-    },
-    {
-      id: "4",
-      title: "Kulturzentrum",
-      description: "Ein lebendiger Gemeinschaftsraum, der lokale Kultur und künstlerischen Ausdruck zelebriert.",
-      images: ["PictureDummy 2.jpeg", "PictureDummy 1.jpeg"],
-      year: 2025,
-      location: "München, Deutschland",
-      category: "Wohnbau"
-    }
-  ];
+  const navigate = useNavigate();
 
-  const categories = ['Alle', ...new Set(projects.map(project => project.category))];
+  const categories = ['Alle', ...new Set(allProjects.map(project => project.category))];
   const filteredProjects = activeCategory === 'Alle' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+    ? allProjects 
+    : allProjects.filter(project => project.category === activeCategory);
 
   return (
     <div className="container mx-auto py-12 px-4">
@@ -81,13 +44,14 @@ const Projects: React.FC = () => {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
-          <div key={project.id} className="group cursor-pointer">
+          <div key={project.id} className="group cursor-pointer" onClick={() => navigate(`/projekte/${project.id}`)}>
             <div className="relative overflow-hidden rounded-xl shadow-lg">
-              <div className="aspect-w-4 aspect-h-3">
+              <div className="aspect-w-4 aspect-h-3 w-full">
                 <img
                   src={project.images[0]}
                   alt={project.title}
-                  className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover w-full h-full rounded-xl"
+                  style={{ aspectRatio: '4/3' }}
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -102,7 +66,7 @@ const Projects: React.FC = () => {
                     {project.title}
                   </h3>
                   <p className="text-neutral-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                    {project.description}
+                    {project.aufgabe}
                   </p>
                   <p className="text-accent-200 text-sm mt-2">
                     {project.location}

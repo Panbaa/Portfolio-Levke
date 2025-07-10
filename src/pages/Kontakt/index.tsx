@@ -22,7 +22,7 @@ function Kontakt() {
               <h2 className="text-2xl font-bold text-primary-900 mb-6">Kontaktinformation</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-accent/10 rounded-lg">
+                  {/* <div className="p-3 bg-accent/10 rounded-lg">
                     <MapPin className="text-accent" size={24} />
                   </div>
                   <div>
@@ -32,7 +32,7 @@ function Kontakt() {
                       24103 Kiel<br />
                       Deutschland
                     </p>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="flex items-start gap-4">
@@ -51,7 +51,7 @@ function Kontakt() {
                   </div>
                   <div>
                     <h3 className="text-primary-900 font-medium mb-1">Email</h3>
-                    <p className="text-primary-700">levke.oelke@web.de</p>
+                    <p className="text-primary-700">l.oelke@outlook.com</p>
                   </div>
                 </div>
               </div>

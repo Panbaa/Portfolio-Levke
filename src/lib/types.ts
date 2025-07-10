@@ -12,7 +12,9 @@ export type NavbarElement = INavbarElement;
 export interface IProject {
     id: string;
     title: string;
-    description: string;
+    aufgabe: string;
+    rahmenbedingungen: string;
+    herausforderung: string;
     images: string[];
     year: number;
     location: string;
